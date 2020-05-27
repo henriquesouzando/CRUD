@@ -1,0 +1,70 @@
+{% extends "cliente/__base.html" %}
+{% load static %}
+
+
+{% block container %}
+{% include "cliente/alert.html" %}
+<button class="create-book btn btn-primary" type="button" name="button">Novo Cliente</button>
+<table class="table">
+    <tr>
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+            <tr>
+                <td>{{cliente.nome}}</td>
+                <td>{{cliente.cpf}}</td>
+                <td>
+             
+                    <button type="button" class="update-book btn btn-secondary" data-id="{% url 'cliente_editar' cliente.pk %}">
+                      <i class="far fa-edit"></i>
+                    </button>
+                
+                    <button type="button" class="delete-book btn btn-danger" data-id="{% url 'cliente_remover' cliente.pk%}">
+                      <i class="far fa-trash-alt"></i>
+                    </button>
+                               
+                  </td>
+            </tr>
+            
+            {% endfor %}
+        </tbody>
+</table>
+
+<!--Modal-->
+{% include "cliente/modal.html" %}
+
+{% if is_paginated %}
+    {% include "cliente/__pagina.html" %}
+{% endif %}
+
+<!--Ajax modal-->
+<script type="text/javascript">
+    $(function () {
+      // Create book button
+      $(".create-book").modalForm({formURL: "{% url 'cadastrar_cliente' %}"});
+  
+      // Update book buttons
+      $(".update-book").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+  
+      // Read book buttons
+      $(".read-book").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+  
+      // Delete book buttons
+      $(".delete-book").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+  
+    });
+  </script>
+
+{% endblock %}
