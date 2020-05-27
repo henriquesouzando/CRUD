@@ -1,6 +1,6 @@
 # CRUD
 CRUD simple com python e django
-Eu utilzei o conceito class based views do django pois ele permite estruturar as viewe e reutilizar código aproveitando heranças e mixins. 
+  Eu utilzei o conceito class based views do django pois ele permite estruturar as viewe e reutilizar código aproveitando heranças e mixins. 
 
 # Tratamento de envio de mensagens
 
@@ -52,7 +52,7 @@ from .views import  ClienteCreate, ClienteView, ClienteUpdate, ClienteRemover
 urlpatterns = [
     path('novo', ClienteCreate.as_view(), name='cadastrar_cliente'),
     path('update/<int:pk>/', ClienteUpdate.as_view(), name='cliente_editar'),
-#    path('', ClienteView.as_view(), name='listar_cliente'),
+######    path('', ClienteView.as_view(), name='listar_cliente'),
     path('remover/<int:pk>/', ClienteRemover.as_view(), name='cliente_remover')
  
 ]
