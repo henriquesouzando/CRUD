@@ -22,6 +22,7 @@ class FormMessageMixin(object):
 Eu criei a class FormMessageMixin para reaproveitar as funções de tratamento de sucesso ou falha para apresentar no front e informar os usuários se sua ação foi executada com sucesso ou não. 
 
 # List view
+```
 class ClienteView(ListView):
     model = Cliente
     context_object_name = 'clientes'
@@ -40,11 +41,12 @@ class ClienteView(ListView):
             clientes = paginator.page(paginator.num_pages)
         context['clientes'] = clientes
         return context
+```
 
 Criei a classe ClienteView herdando o módulo ListView que criará uma nova chamada de exibição. Logo em seguida eu criei a função get_context_data para tratar a nossa paginação. 
 
 # URL
-
+```
 from django.urls import path
 from .views import  ClienteCreate, ClienteView, ClienteUpdate, ClienteRemover
 
@@ -56,6 +58,6 @@ urlpatterns = [
     path('remover/<int:pk>/', ClienteRemover.as_view(), name='cliente_remover')
  
 ]
-
+```
 Criei o a url para a nossa classe ClienteView. 
 
