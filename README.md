@@ -1,6 +1,6 @@
 # CRUD
-CRUD simple com python e django
-  Eu utilzei o conceito class based views do django pois ele permite estruturar as viewe e reutilizar código aproveitando heranças e mixins. 
+CRUD simple com python e django.  
+Eu utilzei o conceito class based views do django pois ele permite estruturar as viewe e reutilizar código aproveitando heranças e mixins. 
 
 # Tratamento de envio de mensagens
 ```
