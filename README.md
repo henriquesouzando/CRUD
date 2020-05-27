@@ -3,7 +3,7 @@ CRUD simple com python e django
   Eu utilzei o conceito class based views do django pois ele permite estruturar as viewe e reutilizar código aproveitando heranças e mixins. 
 
 # Tratamento de envio de mensagens
-
+```
 class FormMessageMixin(object):
     @property
     def form_valid_message(self):
@@ -18,7 +18,7 @@ class FormMessageMixin(object):
     def form_invalid(self, form):
         messages.error(self.request, self.form_invalid_message)
         return super(FormMessageMixin, self).form_invalid(form)
-
+```
 Eu criei a class FormMessageMixin para reaproveitar as funções de tratamento de sucesso ou falha para apresentar no front e informar os usuários se sua ação foi executada com sucesso ou não. 
 
 # List view
